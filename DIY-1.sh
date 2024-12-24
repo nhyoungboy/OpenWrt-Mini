@@ -1,11 +1,6 @@
 # DIY-1 此脚本功能：添加外部插件
 # =======================================================================================================================
 
-# 移除要替换的包
-rm -rf feeds/packages/net/mosdns
-rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/applications/luci-app-mosdns
-
 
 # 1-添加 MosDNS 插件
 # git clone https://github.com/sbwml/luci-app-mosdns.git package/luci-app-mosdns
