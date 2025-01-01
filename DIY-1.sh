@@ -1,19 +1,26 @@
 # DIY-1 此脚本功能：添加外部插件
 # =======================================================================================================================
+# 1-添加 PowerOff 插件
+git clone https://github.com/nhyoungboy/luci-app-poweroff.git package/luci-app-poweroff
 
+# 2-添加 Mosdns 插件
+rm -rf feeds/packages/lang/golang
+rm -rf feeds/packages/net/mosdns
+rm -rf feeds/luci/applications/luci-app-mosdns
+# git clone https://github.com/sbwml/luci-app-mosdns.git package/lean/luci-app-mosdns
 
-# 1-添加 MosDNS 插件
-# git clone https://github.com/sbwml/luci-app-mosdns.git package/luci-app-mosdns
-# git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+# 3-添加 Openclash 插件
+wget -O package/openclash.zip https://codeload.github.com/vernesong/OpenClash/zip/refs/heads/master
+unzip -d package/openclash package/openclash.zip
+cp -r package/openclash/OpenClash-master/luci-app-openclash package/lean/luci-app-openclash
+rm -rf package/openclash package/openclash.zip
 
-# 2-添加 PowerOff 关机插件
-git clone https://github.com/WukongMaster/luci-app-poweroff.git package/luci-app-poweroff
+# 4-添加 onliner 插件
+sed -i '$a src-git onliner https://github.com/nhyoungboy/luci-app-onliner' feeds.conf.default
 
-# 3-添加 opentomcat 主题
-git clone https://github.com/WukongMaster/luci-theme-opentomcat.git package/luci-theme-opentomcat
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-
-# 4-添加 OpenClash 插件
-# sed -i '$a\src-git openclash https://github.com/vernesong/OpenClash' ./feeds.conf.default
+# 5-添加  主题
+# rm -rf feeds/luci/themes/luci-theme-argon
+# git clone https://github.com/sbwml/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
+git clone --depth=1 https://github.com/nhyoungboy/luci-theme-opentomcat.git package/luci-theme-opentomcat
 
 
