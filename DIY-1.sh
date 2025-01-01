@@ -10,7 +10,6 @@ git clone https://github.com/nhyoungboy/luci-app-poweroff.git package/luci-app-p
 # 2-添加 Mosdns 插件
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-mosdns
-# git clone https://github.com/sbwml/luci-app-mosdns.git package/luci-app-mosdns
 sed -i '$a src-git mosdns https://github.com/sbwml/luci-app-mosdns' feeds.conf.default
 
 # 3-添加 Openclash 插件
