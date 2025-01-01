@@ -14,10 +14,9 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 
 # remove v2ray-geodata package from feeds (openwrt-22.03 & master)
 rm -rf feeds/packages/net/v2ray-geodata
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-make menuconfig # choose LUCI -> Applications -> luci-app-mosdns
-make package/mosdns/luci-app-mosdns/compile V=s
+
 
 # 3-添加 Openclash 插件
 wget -O package/openclash.zip https://codeload.github.com/vernesong/OpenClash/zip/refs/heads/master
